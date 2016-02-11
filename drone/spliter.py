@@ -3,20 +3,17 @@ import numpy
 inputArray = []
 
 
-with open('input/logo.in') as f:
+with open('input/mother_of_all_warehouses.in') as f:
     for line in f:
         inputArray.append(line.rstrip())
-    inputVars=inputArray[0]
-    inputArray = numpy.delete(inputArray, (0), axis=0)
-#    print(inputArray)
 
-    for rowIndex,row in enumerate(inputArray):
-        for colIndex,point in  enumerate(row):
-            print(rowIndex, colIndex)
+    inputVars=inputArray[0].split(" ")
+    mapSize=(inputVars[0],inputVars[1])
+    drones=inputVars[2]
+    nrTurns=inputVars[3]
+    maxPayLoad=inputVars[4]
+    secondRow=inputArray[1].split(" ")
+    numberOfDifrentProducts=secondRow[0]
+    products=inputArray[2].split(" ")
 
-
-
-def queThing(checkList,chosenOnes,inputVars):
-    global inputArray    # Needed to modify global copy of globvar
-    print str
-    return
+    products=inputArray[2].split(" ")
