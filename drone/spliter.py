@@ -17,7 +17,16 @@ with open('input/mother_of_all_warehouses.in') as f:
     products=inputArray[2].split(" ")
 
     nrOfWarehouses=inputArray[3].split(" ")[0]
-    warehouses=inputArray[4:int(nrOfWarehouses)*2+4]
+
+    warehousesIn=inputArray[4:int(nrOfWarehouses)*2+4]
+
+    for value in range(0,int(len(warehouses)/2)):
+        position=warehousesIn[value].split(" ")
+        productList=warehousesIn[value+1].split(" ")
+        warehouses.append((position,ordersList))
+    print(orders)
+
+
     nrOrders=inputArray[int(nrOfWarehouses)*2+4]
     ordersIn=inputArray[int(nrOfWarehouses)*2+5:int(nrOrders)*3+int(nrOfWarehouses)*2+5]
 
