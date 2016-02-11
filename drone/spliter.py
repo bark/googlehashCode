@@ -39,7 +39,15 @@ with open('input/mother_of_all_warehouses.in') as f:
         totalWeigth=0
         for order in ordersList:
             totalWeigth+=int(products[int(order)])
-        orders.append((totalWeigth,position,ordersList))
+        orders.append((totalWeigth,position,ordersList,value))
     #utils(mapSize,drones,nrTurns,maxPayLoad,nrOfWarehouses,warehouses,nrOfOrders,orders)
     orders.sort(key=lambda tup: tup[0])
+    #dronePacking([[x] for x in range(n)])
     print(orders);
+
+def dronePacking(checkList):
+    if(checkList):
+        print("hej")
+
+def totalWeigth(listOfHouses):
+    print("H")
