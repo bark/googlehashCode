@@ -1,8 +1,10 @@
 import numpy
+#import utils
 
 inputArray = []
 orders=[]
 warehouses=[]
+products=[]
 with open('input/mother_of_all_warehouses.in') as f:
     for line in f:
         inputArray.append(line.rstrip())
@@ -24,15 +26,20 @@ with open('input/mother_of_all_warehouses.in') as f:
         position=warehousesIn[value].split(" ")
         productList=warehousesIn[value+1].split(" ")
         warehouses.append((position,productList))
-    print(orders)
+
 
 
     nrOrders=inputArray[int(nrOfWarehouses)*2+4]
     ordersIn=inputArray[int(nrOfWarehouses)*2+5:int(nrOrders)*3+int(nrOfWarehouses)*2+5]
 
     for value in range(0,int(len(ordersIn)/3)):
-        position=ordersIn[value].split(" ")
-        nrOfOrders=ordersIn[value+1]
-        ordersList=ordersIn[value+2].split(" ")
-        orders.append((position,ordersList))
-    
+        position=ordersIn[value*3].split(" ")
+        nrOfOrders=ordersIn[value*3+1]
+        ordersList=ordersIn[value*3+2].split(" ")
+        totalWeigth=0
+        for order in ordersList:
+            totalWeigth+=int(products[int(order)])
+        orders.append((totalWeigth,position,ordersList))
+    #utils(mapSize,drones,nrTurns,maxPayLoad,nrOfWarehouses,warehouses,nrOfOrders,orders)
+    orders.sort(key=lambda tup: tup[0])
+    print(orders);
