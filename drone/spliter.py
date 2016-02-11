@@ -2,7 +2,7 @@ import numpy
 
 inputArray = []
 orders=[]
-
+warehouses=[]
 with open('input/mother_of_all_warehouses.in') as f:
     for line in f:
         inputArray.append(line.rstrip())
@@ -20,10 +20,10 @@ with open('input/mother_of_all_warehouses.in') as f:
 
     warehousesIn=inputArray[4:int(nrOfWarehouses)*2+4]
 
-    for value in range(0,int(len(warehouses)/2)):
+    for value in range(0,int(len(warehousesIn)/2)):
         position=warehousesIn[value].split(" ")
         productList=warehousesIn[value+1].split(" ")
-        warehouses.append((position,ordersList))
+        warehouses.append((position,productList))
     print(orders)
 
 
@@ -35,4 +35,4 @@ with open('input/mother_of_all_warehouses.in') as f:
         nrOfOrders=ordersIn[value+1]
         ordersList=ordersIn[value+2].split(" ")
         orders.append((position,ordersList))
-    print(orders)
+    
