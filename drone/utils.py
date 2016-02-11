@@ -8,7 +8,7 @@ class utilClass:
         self.products = products
         self.nrOfWarehouses = nrOfWarehouses
         self.warehouses = warehouses
-        self.nrOrders = nrOrd
+        self.nrOrders = nrOrders
         self.ordersIn = ordersIn
         
     def setMapSize(self, mapSize):
