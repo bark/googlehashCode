@@ -1,5 +1,14 @@
-import numpy
+#import numpy
 #import utils
+import tools
+
+
+def deliver(drone, orderNo, amount, item):
+    return str(drone) + " D " + str(orderNo) + " " + str(amount) + " " + str(item)
+
+def load(drone, warehouse, amount, item):
+    return str(drone) + " D " + str(warehouse) + " " + str(amount) + " " + str(item)
+
 
 inputArray = []
 orders=[]
@@ -45,6 +54,23 @@ with open('input/mother_of_all_warehouses.in') as f:
     #dronePacking([[x] for x in range(n)])
     print(orders);
 
+
+    droneBusy = []
+    for i in range(int(drones) - 1):
+        droneBusy.append((i, 0, 0))
+
+    with open('output.txt', 'w') as o:
+        while orders:
+            order = orders.pop(0)
+            for p in order[2]:
+                o.write(load(droneBusy[0][0], 0, 1, p))
+            for p in order[2]:
+                o.write(deliver(droneBusy[0][0], order[3], 1, p))
+            distHome = tools.distance(0,0, order[1][0], order[1][1])
+            droneBusy[0][1] = distHome + 2*len(order[2])
+            droneBusy[0][2] = distHome
+            droneBusy.sort(key=lambda tup: tup[1])
+            
 def dronePacking(checkList):
     if(checkList):
         print("hej")
